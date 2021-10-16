@@ -7,11 +7,25 @@ p_rnd=true ---random position
 p_x=64
 p_y=64
 p_num=300 --# of each explosion
-p_r=5	--radius
+p_r=8	--radius
 p_vx=2
 p_vy=2
-p_life=1	--life time
-p_plt=1	--palete using (1-5)
+p_life=0.5	--life time
+plt_num=1	--palete using (1-5)
+
+--palette of explosion
+--randomly pick an color
+--from every subtables
+plt={{9,10},
+					{8,9,10},
+					{2,8},
+					{2,8,14},
+					{6,7},
+					{5,6,7},
+					{1,12},
+					{1,12,13},
+					{3,11}, 
+					{3,11,12}} 
 
 function _init()
 end
@@ -27,12 +41,12 @@ function _update()
 		end
 		explode(x,y,p_vx,p_vy,
 										p_r,p_life,
-										p_num,p_plt)
+										p_num,plt_num)
 	end
 	if btnp(4) then
-		p_plt+=1
-		if p_plt>5 then
-			p_plt=1
+		plt_num+=1
+		if plt_num>#plt then
+			plt_num=1
 		end
 	end
 end
@@ -46,12 +60,12 @@ function _draw()
 	clr=7
 	if cpu>0.333 then clr=9 end
 	if cpu>0.666 then clr=8	end
-	print("cpu:"..
-							(cpu*100).."%",
+	print("cpu:"..(cpu*100).."%",
 							5,19,clr)
 end
 -->8
 sparks={}
+
 
 function sparks_add()
 	add(sparks,{
@@ -84,21 +98,12 @@ function sparks_draw()
 		circfill(s.x,s.y,s.r,s.clr)
 	end
 end
-
-function sparks_plt(plt)
-	if plt==1 then return {9,10} end
-	if plt==2 then return {2,8} end
-	if plt==3 then return {6,7} end
-	if plt==4 then return {1,12} end
-	if plt==5 then return {3,11} end
-
-end
 -->8
 function explode(x,y,
 																	vx,vy,
 																	r,life,
-																	num,plt)
-	clr=sparks_plt(plt)
+																	num,plt_num)
+	clr=plt[plt_num]
 	for i=1,num do
 		sparks_add()
 	end				
