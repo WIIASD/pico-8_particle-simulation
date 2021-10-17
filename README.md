@@ -1,7 +1,7 @@
 ﻿# Simple Particle Simulation Using PICO-8
 A simple particle simulation made with pico-8. Now only includes the explosion effect. Other effects might be achieved by changing serval parameters in the code.
 # Installation
-Requirement: PICO-8 or Chrome
+Requirement: PICO-8 or Chrome  
 Open the .p8 file or the .png with PICO-8, or unzip particle_html.zip and open particle.html to play in browser  
 # Control
 Z to change palette  
