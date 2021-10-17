@@ -4,7 +4,7 @@ A simple particle simulation made with pico-8. Now only includes the explosion e
 Requirement: PICO-8 (obviously)  
 Open the .p8 file or the .png with PICO-8!
 # Control
-Y to change palette  
+Z to change palette  
 X to explode!
 # Parameters
 p_rnd=true --random position  
