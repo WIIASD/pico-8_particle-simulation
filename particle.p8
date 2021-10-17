@@ -7,16 +7,16 @@ __lua__
 poke(0x5f5d,255)
 
 p_rnd=true --random position
-p_auto=true --auto explosion
-p_auto_freq=30 --frequency of auto explosion, up to 30/s
+p_auto=false --auto explosion
+p_auto_freq=10 --frequency of auto explosion, up to 30/s
 p_x=64
 p_y=64
 p_num=100 --# of p each explosion
-p_max_num=500 --# of p allow in the pool before resuing
-p_r=5	--radius
+p_max_num=1000 --# of p allow in the pool before resuing
+p_r=20	--radius
 p_vx=2
 p_vy=2
-p_life=3	--life time
+p_life=1	--life time
 p_style=0  -- 0=>fill 1=>wire
 plt_num=1	--palete using (1-#plt)
 
